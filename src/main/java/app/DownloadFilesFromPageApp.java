@@ -15,6 +15,7 @@ import java.util.List;
 
 public class DownloadFilesFromPageApp {
     public static void main(String[] args) throws IOException {
+        long startTime = System.currentTimeMillis();
         System.out.println("Application started");
 
         if (args.length < 2) {
@@ -43,7 +44,8 @@ public class DownloadFilesFromPageApp {
             downloader.downloadFileToFile(fileLink, outputFolder);
         }
 
-        System.out.println("Done");
+        long workDuration = System.currentTimeMillis() - startTime;
+        System.out.println("All the tasks have been done, took: " + workDuration  + " ms");
     }
 
     public static List<String> parsePage(String pageContent, String fileExt) {
